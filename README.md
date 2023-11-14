@@ -1,4 +1,4 @@
-> This repository is maintained by [Long Shot Labs](https://www.longshotlabs.co/). Please consider [financially supporting our mission](https://github.com/sponsors/longshotlabs) to provide useful and supported code packages to the world.
+> This repository hacked the original maintained by [Long Shot Labs](https://www.longshotlabs.co/). Please consider [financially supporting our mission](https://github.com/sponsors/longshotlabs) to provide useful and supported code packages to the world.
 
 ![NPM](https://img.shields.io/npm/l/mongo-object?style=for-the-badge)
 
