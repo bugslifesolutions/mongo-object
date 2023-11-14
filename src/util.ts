@@ -127,7 +127,13 @@ export function isLength (value: any): boolean {
 }
 
 export function isArrayLike (value: any): boolean {
-  return value != null && typeof value !== 'function' && isLength(value.length)
+  return value != null &&
+    typeof value === 'object' &&
+    isFinite(value.length) &&
+    value.length >= 0 &&
+    value.length === Math.floor(value.length) &&
+    value.length < Number.MAX_SAFE_INTEGER &&
+    Object.keys(value).length - 1 === value.length
 }
 
 export function each (
@@ -139,7 +145,9 @@ export function each (
   }
 
   if (Array.isArray(collection)) {
-    collection.forEach(iteratee)
+    collection.forEach((val, index, iterable) => {
+      iteratee(val, index.toString(), iterable)
+    })
     return
   }
 
@@ -152,7 +160,7 @@ export function each (
 
   let index = -1
   while (++index < collection.length) {
-    if (iteratee(iterable[index], index, iterable) === false) {
+    if (iteratee(iterable[index], index.toString(), iterable) === false) {
       break
     }
   }
